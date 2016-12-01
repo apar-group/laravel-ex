@@ -1,0 +1,55 @@
+.forum-index-create-btn {
+    padding-bottom: 10px;
+}
+
+.forum-index-table {
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+}
+
+.forum-index-table .vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.forum-index-table .row {
+    border: 1px solid #cccccc;
+    border-bottom: none;
+    padding-bottom: 10px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.forum-index-table .row:first-child {
+    padding-top: 10px;
+}
+
+.forum-index-table .row:last-child {
+    border: 1px solid #cccccc;
+}
+
+.panel {
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+}
+
+.form-show-title h2 {
+    float: left;
+}
+
+.form-show-title h4 {
+    float: left;
+    margin-top: 25px;
+    margin-left: 20px;
+}
+
+.form-show-comment-text {
+    width: 100%;
+    height: 150px;
+}
+
+.form-create-text, .form-edit-text {
+    width: 100%;
+    height: 300px;
+}
+
+
