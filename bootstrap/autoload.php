@@ -32,3 +32,9 @@ $compiledPath = __DIR__.'/cache/compiled.php';
 if (file_exists($compiledPath)) {
     require $compiledPath;
 }
+
+Cloudinary::config([
+    "cloud_name" => "dem4edcea", 
+    "api_key" => "291114766414246", 
+    "api_secret" => "s2kOM2JOVN-J7GP9vNXVWNqNIxI" 
+]);
