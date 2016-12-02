@@ -26,7 +26,7 @@
 
                 <div class="form-group">
                     <div class="col-md-3">
-                        <img class="img-thumbnail" src='{{ asset("assets/images/user/$user->photo") }}'>
+                    {!! cl_image_tag($user->photo, ['class' => 'img-thumbnail']) !!}
                     </div>
                 </div>
 

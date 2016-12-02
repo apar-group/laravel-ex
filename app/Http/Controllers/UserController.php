@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Mail;
 use File;
 use App\Traits\CaptchaTrait;
+use Cloudinary;
 
 class UserController extends Controller
 {
@@ -129,18 +130,19 @@ class UserController extends Controller
                 ->withErrors($validator)
                 ->withInput();
 
-        if ($file->isValid()) {
-            $path = public_path().'/storage/images/user';
-            $extension = $file->getClientOriginalExtension();
-            $fileName = time() . "-{$id}.{$extension}";
-            $deleteFile = $user->photo;
-            $file->move($path, $fileName);
-            $user->photo = $fileName;
-        } else {
-            return response('Server Error!', '500');
-        }
+        if(!$file->isValid()) return response('Server Error!', '500');
 
-        if ($deleteFile) File::delete("$path/$deleteFile");
+        $fileName = time() . "-{$id}";
+        $deleteFile = $user->photo;
+        $isUpload = Cloudinary\Uploader::upload($file->getRealPath(), [
+            "public_id" => $fileName
+        ]);
+
+        if (!$isUpload) return response('Upload photo error!', '500');
+
+        $user->photo = $fileName;
+
+        if ($deleteFile) Cloudinary\Uploader::destroy($deleteFile);
 
         if ($user->save()) {
             return redirect("profile")->with('message', trans('user.update_photo_success'));
