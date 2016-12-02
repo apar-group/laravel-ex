@@ -63,7 +63,7 @@
 
                     <div class="row">
                         <div class="col-md-6 form-group">
-                            <div class="g-recaptcha" data-sitekey="{{ env('RE_CAP_SITE') }}"></div>
+                            <div class="g-recaptcha" data-sitekey="{{ Config::get('captcha.re_cap_site') }}"></div>
                         </div>
                     </div>
 
