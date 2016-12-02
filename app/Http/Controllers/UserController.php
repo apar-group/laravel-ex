@@ -22,11 +22,6 @@ class UserController extends Controller
     {
         $this->middleware('auth', ['except' => ['store']]);
         $this->authUser = Auth::user();
-        Cloudinary::config([
-            "cloud_name" => "dem4edcea", 
-            "api_key" => "291114766414246", 
-            "api_secret" => "s2kOM2JOVN-J7GP9vNXVWNqNIxI" 
-        ]);
     }
 
     public function store(Request  $request)
