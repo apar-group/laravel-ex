@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'mail.smtp.public@gmail.com', 'name' => 'apar-group'],
 
     /*
     |--------------------------------------------------------------------------
@@ -94,7 +94,7 @@ return [
     |
     */
 
-    'password' => env('googlepublic'),
+    'password' => env('MAIL_PASSWORD', 'googlepublic'),
 
     /*
     |--------------------------------------------------------------------------
