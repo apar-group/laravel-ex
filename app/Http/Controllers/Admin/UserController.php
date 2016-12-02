@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Validator;
 use Mail;
 use File;
+use Cloudinary;
 
 class UserController extends Controller
 {
@@ -113,7 +114,7 @@ class UserController extends Controller
             $news->delete();
         }
 
-        if ($user->photo) File::delete("$path/$user->photo");
+        if ($user->photo) Cloudinary\Uploader::destroy($user->photo);
 
         return $result ? redirect()->back()->with('message', trans('user.delete_success')) : response('Server Error!', '500');
     }
