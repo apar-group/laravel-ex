@@ -18,7 +18,12 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect('/');
+            $user = Auth::user();
+            if ($user->level > User::USER && strpos($request->url(), 'admin')) {
+                return redirect('/admin');
+            } else {
+                return redirect('/forum');
+            }
         }
 
         return $next($request);
