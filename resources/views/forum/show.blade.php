@@ -111,7 +111,7 @@
 
                 <textarea class="form-show-comment-text" name="content" id="comment-create-content" placeholder="請輸入回覆內容">{{ old('content') }}</textarea>
 
-                <div class="g-recaptcha" data-sitekey="{{ env('RE_CAP_SITE') }}"></div>
+                <div class="g-recaptcha" data-sitekey="{{ Config::get('captcha.re_cap_site') }}"></div>
 
                 <button type="submit" class="btn btn-primary">發佈回覆</button>
             </form>

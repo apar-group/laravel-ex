@@ -9,8 +9,15 @@
 
 @section('content')
 
-    @include('component.errors')
     @include('component.message')
+
+    @if(Auth::user())
+        <div class="row forum-index-create-btn">
+            <div class="col-md-4">
+                <a href="{{ url('/forum/post/create') }}"><button class="btn btn-default">發表新文章</button></a>
+            </div>
+        </div>
+    @endif
 
     <div class="forum-index-table">
         <div class="row hidden-xs">
